@@ -42,11 +42,13 @@ Plotly.d3.csv('assets/js/map.csv', function(err, rows){
     var data = [{
         type: 'scattergeo',
         mode: 'markers',
-        locations: unpack(rows, 'country'),
+        text: unpack(rows, 'country'),
+        lat: unpack(rows, 'lat'),
+        lon: unpack(rows, 'long'),
         marker: {
             size: unpack(rows, 'normalized confirmed'),
             color: unpack(rows, 'symptom'),
-            colorscale: 'Greens',
+            colorscale: 'Reds',
             colorbar: {
                 title: 'Interest in "Symptom"'
             },
