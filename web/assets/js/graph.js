@@ -35,7 +35,21 @@ Plotly.d3.csv('assets/js/timeline.csv', function(err, rows){
         y: unpack(rows, 'trump')
     }];
 
-    Plotly.newPlot("graph1", data);
+    var layout = {
+        annotations: [{
+            x: '2020-02-29',
+            y: 55.10157,
+            xref: 'x',
+            yref: 'y',
+            showarrow: true,
+            arrowhead: 7,
+            ax: 0,
+            ay: -40,
+            text: 'First confirmed death in WA'
+        }]
+    }
+
+    Plotly.newPlot("graph1", data, layout);
 });
 
 Plotly.d3.csv('assets/js/map.csv', function(err, rows){
@@ -59,7 +73,6 @@ Plotly.d3.csv('assets/js/map.csv', function(err, rows){
     }];
 
     var layout = {
-        title: '',
         geo: {
             projection: {
                 type: 'mercator'
